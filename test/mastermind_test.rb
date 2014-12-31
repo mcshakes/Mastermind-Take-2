@@ -6,6 +6,7 @@ class MastermindTest < Minitest::Test
   def test_it_exists
     assert MastermindTest
   end
+  # add
 
   def test_it_wins
     mm = Mastermind.new
