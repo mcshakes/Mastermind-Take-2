@@ -1,19 +1,22 @@
 class Codemaker
-  #It takes [RGBY].split up
-  # It maps through each and picks one by random
-  # It displays the random one and that is saved.
-  # code has to be something different than the colors to be chosen
-  # like instance variables of the code
-  def colors
-    ["r","g","b","y"]  # => ["r", "g", "b", "y"]
+  attr_reader :colors, :secret_code
+
+  def initialize
+    @colors = ["r", "g", "b", "y"]
+    @secret_code = (0..3).map { colors.sample }
   end
 
-  def secret_code
-    [0..3].map do |color|  # => [0..3]
-      colors.sample        # => "r"
-    end                    # => ["r"]
-  end
+  # def colors
+  #   ["r","g","b","y"]
+  # end
+
+  # Why does initializing secret code allow it to have all four colors
+  # while below, only one.
+
+  # def secret_code
+  #   [0..3].map {colors.sample}  # => ["g"]
+  # end
 end
 
-code = Codemaker.new  # => #<Codemaker:0x007f879b135338>
-code.secret_code      # => ["r"]
+code = Codemaker.new
+code.secret_code
