@@ -6,15 +6,13 @@ class Codemaker
     @secret_code = (0..3).map { colors.sample }
   end
 
-  # def colors
-  #   ["r","g","b","y"]
-  # end
-
   # Why does initializing secret code allow it to have all four colors
-  # while below, only one.
+  # while below, only one (without the 4.times)
 
   # def secret_code
-  #   [0..3].map {colors.sample}  # => ["g"]
+  #   4.times do
+  #   [0..3].map {colors.sample}
+  #   end
   # end
 end
 
