@@ -1,4 +1,6 @@
 require './lib/mastermind'
+# this shit is for messages
+
 
 puts "Welcome to Mastermind"
 
