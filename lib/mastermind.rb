@@ -8,3 +8,5 @@ class Mastermind
     end
   end
 end
+
+#This is game.rb
