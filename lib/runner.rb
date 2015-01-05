@@ -1,5 +1,5 @@
 require './lib/mastermind'
-# this shit is for messages
+# This is the CLI.
 
 
 puts "Welcome to Mastermind"
