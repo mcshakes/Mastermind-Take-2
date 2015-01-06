@@ -2,13 +2,12 @@ require './lib/mastermind'
 require './lib/printer'
 
 class Runner
-  attr_reader :printer, :user_input, :output, :input
+  attr_reader :printer, :menu, :game
 
   def initialize(input, output)
+    @menu = Menu.new
     @printer = Printer.new
-    @input = input
-    @output = output
-    @user_input = ''
+    @game = Mastermind.new
   end
 
   def run
@@ -19,16 +18,31 @@ class Runner
       # if the game is active, send input to the game
       # print feedback from menu/game
       # figure out if we should keep going
-    signal = :go
+    feedback = menu.start
+    message = feedback[0]
+    signal = feedback[1]
+
+    puts message
 
     until signal == :stop || signal == :broken
-    # while ![:stop, :broken].include?(signal) same thing
-      puts printer.welcome
+    # until [:stop, :broken].include?(signal)
       input = gets.chomp.strip.downcase
       if menu.active?
         feedback = menu.execute(input)
+
+        message = feedback[0]
+        signal = feedback[1]
+
+        if signal == :start_game
+          feedback = game.start
+        end
+
       elsif game.active?
         feedback = game.execute(input)
+
+        if signal == :win
+          # go back to main menu
+        end
       else
         feedback = ["uhh... what's happening?", :broken]
       end
@@ -40,38 +54,4 @@ class Runner
     end
   end
 
-  def player_choices
-    output.puts printer.welcome
-    until end?
-      @user_input = input.gets.strip.downcase
-      menu_sequence
-    end
-    output.puts printer.end_game
-  end
-
-  def menu_sequence
-    case
-    when play?
-      Mastermind.new.play   # play is execute or play the game
-    when instructions?
-      output.puts printer.instructions
-    when end?
-      output.puts printer.end_game
-      abort
-    else
-      output.puts printer.invalid_command
-    end
-  end
-
-  def end?
-    user_input == "q"
-  end
-
-  def play?
-    user_input == 'p'
-  end
-
-  def instructions?
-    user_input == "i"
-  end
 end
