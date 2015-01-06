@@ -1,18 +1,47 @@
 require './lib/mastermind'
+require './lib/printer'
 
 class Runner
+  attr_reader :printer, :user_input, :output, :input
 
   def initialize(input, output)
-  #need to initialize the messages; separate class
-  #input: the actual user input that is put in.
-  #output:
-  #@user_input = ''
+    @printer = Printer.new
+    @input = input
+    @output = output
+    @user_input = ''
   end
 
-  def user_input
-    input = user_input
+  def player_choices
+    output.puts printer.welcome
+    until end?
+      @user_input = input.gets.strip.downcase
+      menu_sequence
+    end
+    output.puts printer.end_game
   end
-puts "Welcome to Mastermind"
+
+  def menu_sequence
+    case
+    when play?
+      Mastermind.new.play  # play to actually begin
+    when instructions?
+      output.puts printer.instructions
+    when end?
+      output.puts printer.end_game
+      abort
+    else
+      output.puts printer.invalid_command
+    end
+  end
+
+  # user_input = ""
+  # mastermind = Mastermind.new
+  #
+  # while input != "q"
+  #   print "> "
+  #   input = gets.chomp
+  #   puts mastermind.execute(input)
+  # end
 
   def end?
     user_input == "q"
@@ -26,14 +55,6 @@ puts "Welcome to Mastermind"
     user_input == "i"
   end
 
-# user_input = ""
-# mastermind = Mastermind.new
-#
-# while input != "q"
-#   print "> "
-#   input = gets.chomp
-#   puts mastermind.execute(input)
-# end
-puts "Goodbye!"
+
 
 end
