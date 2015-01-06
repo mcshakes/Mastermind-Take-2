@@ -20,9 +20,6 @@ class GuessValidator
     guess.length < secret_code.length
   end
 
-  # This is only checking for true/false in invalidity?
-  # What if you want to ask which are true/false?
-
   def invalid?(guess, possible_colors)
     guess.find {|color| /[^{possible_colors}]+/ =~ color}
     # .find only gets one letter that is incorrect. Is that enough?
