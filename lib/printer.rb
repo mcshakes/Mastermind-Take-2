@@ -1,7 +1,7 @@
 class Printer
 
   def welcome
-    "\nWelcome to Mastermind"
+    "\nWelcome to Mastermind\nWould you like to (q)uit or (p)lay?"
   end
 
   def end_game
