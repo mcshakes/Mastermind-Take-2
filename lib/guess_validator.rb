@@ -1,4 +1,3 @@
-# this will check for color matches against user_input
 require_relative 'codemaker'
 
 class GuessValidator

@@ -18,17 +18,20 @@ class GuessEvaluator
     4 - duplicate.length
   end
 
+  # This was unnecessary; trying to account for duplicates
+  # Don't need to. Refer to specs
+
   # def correct_colors
-  #   total = 0
-  #   guess = ["r","g","g","y"].uniq
-  #   secret_code = ["b","g","r","g"].uniq
-  #   # duplicate = guess.dup
-  #   secret_code.map do |color|
+  #   correct = 0
+  #   guess = @guess.dup
+  #   answer = secret_code
+  #   answer.each do |color|
   #     if guess.include?(color)
-  #       total += 1
+  #       guess.delete_at(guess.index(color))
+  #       correct += 1
   #     end
   #   end
-  #   total
+  #   correct
   # end
 
   def correct_positions
@@ -43,7 +46,6 @@ class GuessEvaluator
   end
 end
 
-c = GuessEvaluator.new(["r","g","g","y"], ["b","g","r","g"])
+c = GuessEvaluator.new(["r","g","y","y"], ["r","b","g","g"])
 c.correct_colors
-
-# For finding indexs and duplicates: https://www.ruby-forum.com/topic/4105409
+c.correct_positions

@@ -23,7 +23,7 @@ class Runner
   def menu_sequence
     case
     when play?
-      Mastermind.new.play  # play to actually begin
+      Mastermind.new.play   # play is execute or play the game
     when instructions?
       output.puts printer.instructions
     when end?
@@ -33,6 +33,8 @@ class Runner
       output.puts printer.invalid_command
     end
   end
+
+  # can even use until == stop
 
   # user_input = ""
   # mastermind = Mastermind.new
