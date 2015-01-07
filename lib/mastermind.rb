@@ -1,9 +1,8 @@
-require './lib/codemaker'
-require './lib/guess_evaluator'
-require './lib/guess_validator'
-require './lib/printer'
-require './lib/runner'
-require './lib/menu'
+require_relative 'codemaker'
+require_relative 'guess_evaluator'
+require_relative 'guess_validator'
+require_relative 'printer'
+require_relative 'runner'
 
 class Mastermind
   attr_reader :sequence, :printer, :codemaker
@@ -13,12 +12,24 @@ class Mastermind
     @printer = Printer.new
   end
 
+  def generate_sequence
+    p "Secret Code for testing: #{codemaker.secret_code}"
+  end
+
   def play
-    puts printer.game_flow_blurb # can coloroze(:blue)
-    until win?  #
+    puts printer.game_start_blurb # can colorize(:blue)
+    until win?
+      @user_input = gets.chomp.downcase
+      quit if user_input == "q"
+      @evaluator = GuessEvaluator.new(user_input.chars, codemaker.code)
+      corect_colors
+      correct_positions
+      check_length
     end
   end
 
+
+  #### Put in Checker ####
 
   def correct_colors
     colors = @guess_evaluator.correct_colors
@@ -52,11 +63,7 @@ class Mastermind
     else
       puts "#{colors} colors are correct".yellow
     end
-  end
-
-
-  def active?
-    @active
+    #puts "#{colors} color#{'s' unless colors == 1} are correct".yellow
   end
 
   def stop

@@ -2,9 +2,6 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/mastermind'
 
-# require '../lib/mastermind' ##This only allows me to run individual tests.
-# above with one dot allows me to run rake. why?
-
 class MastermindTest < Minitest::Test
 
   def test_it_exists
@@ -14,26 +11,36 @@ class MastermindTest < Minitest::Test
   def test_it_starts_the_game
     mm = Mastermind.new
     printer = Printer.new
-    feedback = runner.initial_menu_commands
+    runner = Runner.new($stdin,$stdout)
+    feedback = runner.initial_menu_processes
     feedback = 'p'
-    assert_equal printer.game_start, message
+    assert_equal "I've generated a beginner sequence made up of four elements: (r)ed,(g)reen, (b)lue, and (y)ellow.
+    \nUse (q)uit at any time to end the game.
+    \nWhat's your guess?", printer.game_start_blurb
   end
 
   def test_it_generates_sequences
-    skip
     mm_1 = Mastermind.new
-    mm_1.start
+    mm_1.generate_sequence
     mm_2 = Mastermind.new
-    mm_2.start
+    mm_2.generate_sequence
     assert mm_1 != mm_2
   end
+
+  def test_it_takes_player_guess
+    skip
+    mm = Mastermind.new
+
+  end
+
+
 
   def test_the_randomness_of_sequences
     skip
     mm = Mastermind.new
     sequences = []
     100.times do
-      sequences << mm.start
+      sequences << mm.generate_sequence
     end
     unique_sequences = sequences.uniq
     assert unique_sequences.count > 1

@@ -3,4 +3,4 @@ $LOAD_PATH.unshift(lib_dir)
 require 'runner'
 
 cli = Runner.new($stdin,$stdout)
-cli.run
+cli.calls
