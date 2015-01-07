@@ -25,25 +25,17 @@ class Runner
 
   def initial_menu_processes
     case user_input
-    when play? then Mastermind.new.play
-      when instructions? then output.puts printer.game_instructions
-      when "q" then output.puts printer.abrupt_end
-      abort
-    else
+    when "p" then Mastermind.new.play
+      when "i" then output.puts printer.instructions
+      when "q" then output.puts printer.rage_quit
+        abort
+      else
       output.puts printer.invalid_commands
     end
   end
 
   def finished?
     user_input == "q"
-  end
-
-  def play?
-    user_input == "p"
-  end
-
-  def instructions?
-    user_input == "i"
   end
 end
 
