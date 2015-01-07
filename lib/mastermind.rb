@@ -5,7 +5,7 @@ require_relative 'printer'
 require_relative 'runner'
 
 class Mastermind
-  attr_reader :sequence, :printer, :codemaker
+  attr_reader :sequence, :printer, :codemaker, :user_input
 
   def initialize
     @codemaker = Codemaker.new
@@ -71,7 +71,7 @@ class Mastermind
   #
   end
 
-  def win
-    # Then return to main menu
+  def win?
+    user_input == codemaker.secret_code
   end
 end
