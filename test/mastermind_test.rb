@@ -27,14 +27,14 @@ class MastermindTest < Minitest::Test
     mm_1.start
     mm_2 = Mastermind.new
     mm_2.start
-    assert mm_1.sequence != mm_2.sequence
+    assert mm_1 != mm_2
   end
 
   def test_the_randomness_of_sequences
     mm = Mastermind.new
     sequences = []
     100.times do
-      sequences << mm.generate_sequence
+      sequences << mm.start
     end
     unique_sequences = sequences.uniq
     assert unique_sequences.count > 1
