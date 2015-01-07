@@ -15,8 +15,7 @@ class Mastermind
 
   def start
     @active = true
-    @sequence = Codemaker.new
-    return ["I've generated....", :go]
+    @codemaker = Codemaker.new
   end
 
   def execute(input)
@@ -41,12 +40,6 @@ class Mastermind
   def active?
     @active
   end
-
-  def generate_sequence
-    # ["R", "Y", "B", "G"].shuffle
-    @codemaker.secret_code
-  end
-  # binding.pry
 
   def stop
   # Where the you quit from runner.rb
