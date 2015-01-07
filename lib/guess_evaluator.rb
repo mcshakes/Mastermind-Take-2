@@ -18,22 +18,6 @@ class GuessEvaluator
     4 - duplicate.length
   end
 
-  # This was unnecessary; trying to account for duplicates
-  # Don't need to. Refer to specs
-
-  # def correct_colors
-  #   correct = 0
-  #   guess = @guess.dup
-  #   answer = secret_code
-  #   answer.each do |color|
-  #     if guess.include?(color)
-  #       guess.delete_at(guess.index(color))
-  #       correct += 1
-  #     end
-  #   end
-  #   correct
-  # end
-
   def correct_positions
     counter = 0
     combined = guess.zip(secret_code)
