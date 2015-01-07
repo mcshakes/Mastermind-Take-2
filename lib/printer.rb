@@ -1,13 +1,7 @@
 class Printer
 
   def welcome
-    "\nWelcome to Mastermind
-    \nWould you like to (p)lay, read the (i)nstructions, or (q)uit?
-    \n<>"
-  end
-
-  def end_game
-    "\nGoodbye!"
+    "\nWelcome to Mastermind\nWould you like to (p)lay, read the (i)nstructions, or (q)uit?"
   end
 
   def instructions
@@ -15,16 +9,14 @@ class Printer
   end
 
   def game_start_blurb
-    "I've generated a beginner sequence made up of four elements: (r)ed,(g)reen, (b)lue, and (y)ellow.
-    \nUse (q)uit at any time to end the game.
-    \nWhat's your guess?"
+    "I've generated a beginner sequence made up of four elements: (r)ed,(g)reen, (b)lue, and (y)ellow.\nUse (q)uit at any time to end the game.\nWhat's your guess?"
   end
 
   def invalid_commands
-    "\nThose are your only choices genius. Pay attention"
-    "\nNope! Don't recognize that command"
-    "\nYour choices are (p)lay, read complicated (i)nstructions, or (q)uit."
-    "\nPick one please."
+    "\nThose are your only choices genius. Pay attention
+    \nNope! Don't recognize that command
+    \nYour choices are (p)lay, read complicated (i)nstructions, or (q)uit.
+    \nPick one please."
   end
 
 
@@ -32,8 +24,8 @@ class Printer
     "\nGive me your guess! \n<$>" #has to appear after every wrong guess
   end
 
-  def abrupt_end
-    "\nCan't hack it? \nMaster your mind before it masters you."
+  def rage_quit
+    "\nWell, I'm not surprised.\nThere are better games out there.\nAnd anything's better than Battleship... "
   end
 
   def turns_left
