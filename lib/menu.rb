@@ -8,13 +8,13 @@ class Menu
     @printer = Printer.new
   end
 
-  def active?
-    @active
-  end
+  # def active?
+  #   @active
+  # end
 
   def start
     @active = true
-    return [printer.welcome, :go] # displays Welcome message
+    return [printer.welcome, :go] # displays Welcome message # needs to be in mastermind
   end
 
   def execute(input)

@@ -3,4 +3,4 @@ $LOAD_PATH.unshift(lib_dir)
 require 'runner'
 
 cli = Runner.new($stdin,$stdout)
-cli.player_choices
+cli.run

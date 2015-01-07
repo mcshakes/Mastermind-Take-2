@@ -5,6 +5,7 @@ require './lib/menu'
 class MenuTest < Minitest::Test
 
   def test_it_quits
+    skip
     menu = Menu.new
     menu.start
     feedback = menu.execute("q")
@@ -14,6 +15,7 @@ class MenuTest < Minitest::Test
   end
 
   def test_it_prints_instructions
+    skip
     menu = Menu.new
     menu.start
     feedback = menu.execute("i")
@@ -23,6 +25,7 @@ class MenuTest < Minitest::Test
   end
 
   def test_it_can_do_instructions_then_quit
+    skip
     menu = Menu.new
     menu.start
     menu.execute("i")
@@ -33,6 +36,7 @@ class MenuTest < Minitest::Test
   end
 
   def test_it_can_start_a_game
+    skip
     menu = Menu.new
     menu.start
     feedback = menu.execute("p")
@@ -41,6 +45,5 @@ class MenuTest < Minitest::Test
     refute menu.active?
     assert_equal :start_game, signal
   end
-
 
 end

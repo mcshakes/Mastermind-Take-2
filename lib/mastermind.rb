@@ -10,32 +10,50 @@ class Mastermind
 
   def initialize
     @codemaker = Codemaker.new
-    @messages = Printer.new
+    @printer = Printer.new
   end
 
-  def start
-    @active = true
-    @codemaker = Codemaker.new
+  def play
+    puts printer.game_flow_blurb # can coloroze(:blue)
+    until win?  #
+    end
   end
 
-  def execute(input)
-    # signal == :start_game
-     ["game_start", :play]
-     # prompt user for the choice
-     # Take choice, compare to
-     # .lib/guess_eval and guess_validator
-    ## Until correct, print out
-     # messages showing correct colors and positions
-    ## If correct, go back to signal :win from runner.rb
 
-    # if guess is right, queue :win method
-    ["Winner message!", :win] # remember the win message and the
-    # else
-    #   give feedback
-    # flesh out gameplay for ["2 correct colors, 1 correct position", :continue]
-
-
+  def correct_colors
+    colors = @guess_evaluator.correct_colors
+    unless colors > 1
+      puts "You have #{colors} color that's correct."
+    else
+      puts "#{colors} colors are correct"
+    end
   end
+
+  def check_length
+    if @user_input.length < 4
+      puts printer.not_enough_guesses
+    elsif @user_input.length > 4
+      puts printer.too_many_guesses
+    end
+  end
+
+  def correct_positions
+    positions = @guess_evaluator.correct_positions
+    unless positions > 1
+      puts "You have #{positions} correct position.".yellow
+    else
+      puts "#{positions} positions are correct.".yellow
+    end
+  end
+
+  def check_proper_colors
+    unless colors > 1
+      puts "You have #{colors} color that's correct.".yellow
+    else
+      puts "#{colors} colors are correct".yellow
+    end
+  end
+
 
   def active?
     @active

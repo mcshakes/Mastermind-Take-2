@@ -13,16 +13,14 @@ class MastermindTest < Minitest::Test
 
   def test_it_starts_the_game
     mm = Mastermind.new
-    menu = Menu.new
     printer = Printer.new
-    feedback = menu.execute('p')
-    message = feedback[0]
-    signal = feedback[1]
-    assert_equal :start_game, signal
+    feedback = runner.initial_menu_commands
+    feedback = 'p'
     assert_equal printer.game_start, message
   end
 
   def test_it_generates_sequences
+    skip
     mm_1 = Mastermind.new
     mm_1.start
     mm_2 = Mastermind.new
@@ -31,6 +29,7 @@ class MastermindTest < Minitest::Test
   end
 
   def test_the_randomness_of_sequences
+    skip
     mm = Mastermind.new
     sequences = []
     100.times do
@@ -43,12 +42,21 @@ class MastermindTest < Minitest::Test
   def test_it_wins_if_correct
     skip
     mm = Mastermind.new
-    result = mm.execute("BBGB")
+    secret_code = mm.start
+    result = mm.execute(input)
+    result == secret_code
+    assert mm.win
     assert result.downcase.include?("win")
   end
 
   def test_it_brings_back_to_main_menu_after_win
     skip
+    mm = Mastermind.new
+    mm.start
+    correct_answer = mm.start
+
+
+    mm.win
   end
 
   def test_it_wins_first_try
@@ -60,10 +68,6 @@ class MastermindTest < Minitest::Test
     message = feedback[0]
     signal = feedback[1]
     assert_equal :win, signal
-  end
-
-  def test_it_brings_back_to_main_menu_after_win
-    skip
   end
 
 
