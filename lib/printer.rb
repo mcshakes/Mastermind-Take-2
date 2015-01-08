@@ -51,7 +51,7 @@ class Printer
   end
 
   def not_enough_guesses
-    "\nToo short. You have so many options on that keyboard, so add more guesses."
+    "\nToo short. So many options on that keyboard, and you decide to come up short. Add more guesses."
   end
 
   def too_many_guesses
@@ -59,7 +59,7 @@ class Printer
   end
 
   def end_game_sequence(secret_code)
-    "\nCongrats! You guessed the secret code: #{secret_code}" #at #{@timer.minutes} minutes and #{@timer.seconds} seconds.
+    "\nCongrats! You guessed the secret code: #{secret_code}".red #at #{@timer.minutes} minutes and #{@timer.seconds} seconds.
   end
 
   def prompt_at_end

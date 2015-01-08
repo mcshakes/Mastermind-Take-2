@@ -18,6 +18,4 @@ class CodeMakerTest < Minitest::Test
     assert_equal Array, codemaker.secret_code.class
   end
 
-  ## Use stub to test for randomness. See Rachel's Numbermind
-
 end

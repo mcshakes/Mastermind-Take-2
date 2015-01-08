@@ -11,7 +11,7 @@ class CheckerTest < Minitest::Test
 
   def test_win_works
     skip
-    checker = GuessChecker.new
+    checker = GuessChecker.new(guess, code)
     refute checker.win?("rrrb", "rggy")
     assert checker.win?("rrrb", "rrrb")
   end

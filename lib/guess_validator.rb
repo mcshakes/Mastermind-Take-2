@@ -22,9 +22,8 @@ class GuessValidator
 
   def invalid?(guess, possible_colors)
     guess.find {|color| /[^{possible_colors}]+/ =~ color}
-    # .find only gets one letter that is incorrect. Is that enough?
   end
 end
 
-val = GuessValidator.new
-val.invalid?(%w(T 9 Q Z), %w(R G B Y))
+# val = GuessValidator.new
+# val.invalid?(%w(T 9 Q Z), %w(R G B Y))

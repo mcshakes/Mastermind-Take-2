@@ -17,7 +17,7 @@ class Mastermind
   end
 
   def play
-    # p "Secret Code for testing: #{codemaker.secret_code}"
+    p "Secret Code for testing: #{codemaker.secret_code}"
     puts printer.game_start_blurb
     until win?
       @user_input = gets.chomp.downcase

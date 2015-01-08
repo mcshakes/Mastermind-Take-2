@@ -5,7 +5,6 @@ require './lib/guess_validator'
 class GuessValidatorTest < Minitest::Test
 
   def test_it_exists
-    # validator = GuessValidator.new(guess, colors='rgby')
     assert GuessValidator.new
   end
 
