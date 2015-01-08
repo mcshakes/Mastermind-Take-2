@@ -1,11 +1,20 @@
 class Printer
 
   def welcome
-    "\nWelcome to Mastermind\nWould you like to (p)lay, read the (i)nstructions, or (q)uit?"
+    clear_screen
+    puts '
+    ___  ___             _                           _             _
+    |  \/  |            | |                         (_)           | |
+    | .  . |  __ _  ___ | |_   ___  _ __  _ __ ___   _  _ __    __| |
+    | |\/| | / _` |/ __|| __| / _ \| "__|| "_ ` _ \ | || "_ \  / _` |
+    | |  | || (_| |\__ \| |_ |  __/| |   | | | | | || || | | || (_| |
+    \_|  |_/ \__,_||___/ \__| \___||_|   |_| |_| |_||_||_| |_| \__,_|'
+
+    "\n\nWelcome to Mastermind\nWould you like to (p)lay, read the (i)nstructions, or (q)uit?"
   end
 
   def instructions
-    "\nHow to play..."
+    "\nPick amongst four colors: \n(r)ed \n(g)reen \n(b)lue and \n(y)ellow.\nOnly those four. Complicated right?\nYou can (q)uit any time, quitter. Nobody judges you."
   end
 
   def game_start_blurb
@@ -45,9 +54,9 @@ class Printer
     "Congrats! You guessed the secret code: . "
   end
 
-  # def clear_screen
-  #   print "\e[2J\e[f"
-  # end
+  def clear_screen
+    print "\e[2J\e[f"
+  end
 
 
 end
