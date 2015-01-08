@@ -36,9 +36,16 @@ class Printer
     \nPick one please."
   end
 
+  def print_count(count)
+    if count < 5
+      "Your turns taken: #{count}"
+    else
+    "Keep guessing genius. It's not like you have a finite number of guesses. But you have taken #{count} guesses".red
+    end
+  end
 
   def prompt_for_answer
-    "\nHah! Try again!\n :-)".red 
+    "\nTry again!\n :-)".red
   end
 
   def rage_quit
@@ -59,7 +66,11 @@ class Printer
   end
 
   def end_game_sequence(secret_code)
-    "\nCongrats! You guessed the secret code: #{secret_code}".red #at #{@timer.minutes} minutes and #{@timer.seconds} seconds.
+    "\nCongrats! You guessed the secret code: #{secret_code}".red
+  end
+
+  def your_time_played(time)
+    "Total time:"
   end
 
   def prompt_at_end

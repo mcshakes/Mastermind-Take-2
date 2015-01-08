@@ -8,6 +8,4 @@ class GuessCounter
   def guess_counter
     @guess_count += 1
   end
-
-
 end
