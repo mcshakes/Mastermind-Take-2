@@ -1,4 +1,12 @@
+require_relative 'timer'
+require 'colorize'
+
 class Printer
+  attr_reader :timer
+
+  def initialize
+    @timer = Timer.new
+  end
 
   def welcome
     clear_screen
@@ -8,7 +16,7 @@ class Printer
     | .  . |  __ _  ___ | |_   ___  _ __  _ __ ___   _  _ __    __| |
     | |\/| | / _` |/ __|| __| / _ \| "__|| "_ ` _ \ | || "_ \  / _` |
     | |  | || (_| |\__ \| |_ |  __/| |   | | | | | || || | | || (_| |
-    \_|  |_/ \__,_||___/ \__| \___||_|   |_| |_| |_||_||_| |_| \__,_|'
+    \_|  |_/ \__,_||___/ \__| \___||_|   |_| |_| |_||_||_| |_| \__,_|'.magenta
 
     "\n\nWelcome to Mastermind\nWould you like to (p)lay, read the (i)nstructions, or (q)uit?"
   end
@@ -50,8 +58,8 @@ class Printer
     "\nAnswer is too long. Stop jamming random keys."
   end
 
-  def end_game_sequence
-    "\nCongrats! You guessed the secret code: . "
+  def end_game_sequence(secret_code)
+    "\nCongrats! You guessed the secret code: #{secret_code}" #at #{@timer.minutes} minutes and #{@timer.seconds} seconds.
   end
 
   def prompt_at_end

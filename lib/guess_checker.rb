@@ -12,21 +12,11 @@ class GuessChecker
 
   def correct_colors
     colors = @evaluator.correct_colors
-    # unless colors > 1
-    #   puts "You have #{colors} color that's correct."
-    # else
-    #   puts "#{colors} colors are correct"
-    # end
     puts "You have #{colors} correct color#{'s' unless colors == 1}."
   end
 
   def correct_positions
     positions = @evaluator.correct_positions
-    # unless positions > 1
-    #   puts "You have #{positions} correct position."
-    # else
-    #   puts "#{positions} positions are correct."
-    # end
     puts "You have #{positions} correct position#{'s' unless positions == 1}."
   end
 

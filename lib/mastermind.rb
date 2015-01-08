@@ -4,18 +4,20 @@ require_relative 'guess_validator'
 require_relative 'printer'
 require_relative 'runner'
 require_relative 'guess_checker'
+require_relative 'timer'
 
 class Mastermind
-  attr_reader :printer, :codemaker, :user_input
+  attr_reader :printer, :codemaker, :user_input, :timer
 
   def initialize
-    @codemaker = Codemaker.new
-    @printer = Printer.new
+    @codemaker   = Codemaker.new
+    @printer     = Printer.new
     @secret_code = @codemaker.secret_code
+    @timer       = Timer.new
   end
 
   def play
-    p "Secret Code for testing: #{codemaker.secret_code}"
+    # p "Secret Code for testing: #{codemaker.secret_code}"
     puts printer.game_start_blurb
     until win?
       @user_input = gets.chomp.downcase
@@ -26,7 +28,7 @@ class Mastermind
       @checker.check_length
       printer.prompt_for_answer
     end
-    puts printer.end_game_sequence
+    puts printer.end_game_sequence(codemaker.secret_code)
     puts printer.prompt_at_end
   end
 
