@@ -38,7 +38,7 @@ class Printer
 
 
   def prompt_for_answer
-    "\nHah! Try again!\n :-)" #has to appear after every wrong guess
+    "\nHah! Try again!\n :-)".red 
   end
 
   def rage_quit

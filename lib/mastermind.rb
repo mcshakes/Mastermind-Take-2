@@ -26,7 +26,7 @@ class Mastermind
       @checker.correct_colors
       @checker.correct_positions
       @checker.check_length
-      printer.prompt_for_answer
+      puts printer.prompt_for_answer
     end
     puts printer.end_game_sequence(codemaker.secret_code)
     puts printer.prompt_at_end
