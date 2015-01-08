@@ -24,6 +24,7 @@ class Mastermind
     until win?
       @user_input = gets.chomp.downcase
       guess_counter
+      time_elapsed
       @checker = GuessChecker.new(@user_input, @secret_code)
       quit? if user_input == "q"
       @checker.correct_colors

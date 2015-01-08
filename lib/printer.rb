@@ -70,7 +70,7 @@ class Printer
   end
 
   def your_time_played(time)
-    "Total time:"
+    "Total time: #{time} seconds".magenta
   end
 
   def prompt_at_end
