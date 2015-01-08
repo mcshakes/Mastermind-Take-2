@@ -16,7 +16,7 @@ class Mastermind
 
   def play
     p "Secret Code for testing: #{codemaker.secret_code}"
-    puts printer.game_start_blurb 
+    puts printer.game_start_blurb
     until win?
       @user_input = gets.chomp.downcase
       @checker = GuessChecker.new(@user_input, @secret_code)
@@ -31,7 +31,7 @@ class Mastermind
   end
 
   def win?
-    user_input == codemaker.secret_code
+    user_input == codemaker.secret_code.join
   end
 
   def quit?

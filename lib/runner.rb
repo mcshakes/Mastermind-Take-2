@@ -14,13 +14,12 @@ class Runner
   end
 
   def calls
-    # output.puts printer.clear_screen # come back to this
     output.puts printer.welcome
     until finished?
       @user_input = input.gets.strip.downcase
       initial_menu_processes
     end
-    output. puts printer.end_game_sequence
+    output.puts printer.end_game_sequence
   end
 
   def initial_menu_processes

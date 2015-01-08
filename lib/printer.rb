@@ -14,11 +14,11 @@ class Printer
   end
 
   def instructions
-    "\nPick amongst four colors: \n(r)ed \n(g)reen \n(b)lue and \n(y)ellow.\nOnly those four. Complicated right?\nYou can (q)uit any time, quitter. Nobody judges you."
+    "\nPick amongst four colors: \n(r)ed \n(g)reen \n(b)lue and \n(y)ellow.\nOnly those four. Complicated right?\nYou can (q)uit any time, butthead.\nSo want to (p)lay?"
   end
 
   def game_start_blurb
-    "I've generated a beginner sequence made up of four elements: (r)ed,(g)reen, (b)lue, and (y)ellow.\nUse (q)uit at any time to end the game.\nWhat's your guess?"
+    "\nI've generated a beginner sequence made up of four elements: (r)ed, (g)reen, (b)lue and (y)ellow.\nUse (q)uit at any time to end the game.\nWhat's your guess?"
   end
 
   def invalid_commands
@@ -30,7 +30,7 @@ class Printer
 
 
   def prompt_for_answer
-    "\nGive me your guess! \n<$>" #has to appear after every wrong guess
+    "\nHah! Try again!\n :-)" #has to appear after every wrong guess
   end
 
   def rage_quit
@@ -43,15 +43,19 @@ class Printer
   end
 
   def not_enough_guesses
-    "\nToo short. Pound that keyboard and add some guesses"
+    "\nToo short. You have so many options on that keyboard, so add more guesses."
   end
 
   def too_many_guesses
-    "\nToo long bro. Stop jamming random keys."
+    "\nAnswer is too long. Stop jamming random keys."
   end
 
   def end_game_sequence
-    "Congrats! You guessed the secret code: . "
+    "\nCongrats! You guessed the secret code: . "
+  end
+
+  def prompt_at_end
+    "\nDo you want to (p)lay another round, read those super complex (i)nstructions again \nor (q)uit? And do something something useful..."
   end
 
   def clear_screen
