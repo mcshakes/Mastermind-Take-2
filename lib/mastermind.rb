@@ -16,7 +16,7 @@ class Mastermind
 
   def play
     p "Secret Code for testing: #{codemaker.secret_code}"
-    puts printer.game_start_blurb # can colorize(:blue)
+    puts printer.game_start_blurb 
     until win?
       @user_input = gets.chomp.downcase
       @checker = GuessChecker.new(@user_input, @secret_code)
@@ -24,7 +24,10 @@ class Mastermind
       @checker.correct_colors
       @checker.correct_positions
       @checker.check_length
+      printer.prompt_for_answer
     end
+    puts printer.end_game_sequence
+    puts printer.prompt_at_end
   end
 
   def win?

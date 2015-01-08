@@ -14,25 +14,14 @@ class MastermindTest < Minitest::Test
     runner = Runner.new($stdin,$stdout)
     feedback = runner.initial_menu_processes
     feedback = 'p'
-    assert_equal "I've generated a beginner sequence made up of four elements: (r)ed,(g)reen, (b)lue, and (y)ellow.\nUse (q)uit at any time to end the game.\nWhat's your guess?", printer.game_start_blurb
+    assert_equal "\nI've generated a beginner sequence made up of four elements: (r)ed, (g)reen, (b)lue and (y)ellow.\nUse (q)uit at any time to end the game.\nWhat's your guess?", printer.game_start_blurb
   end
 
-  def test_it_generates_sequences
-    skip
+  def test_it_generates_a_sequence
     mm_1 = Mastermind.new
-    mm_1.generate_sequence
-    mm_2 = Mastermind.new
-    mm_2.generate_sequence
-    assert mm_1 != mm_2
+    codemaker = Codemaker.new
+    assert codemaker.secret_code
   end
-
-  def test_it_takes_player_input
-    skip
-    mm = Mastermind.new
-
-  end
-
-
 
   def test_the_randomness_of_sequences
     skip
@@ -43,6 +32,12 @@ class MastermindTest < Minitest::Test
     end
     unique_sequences = sequences.uniq
     assert unique_sequences.count > 1
+  end
+
+  def test_it_takes_player_input
+    skip
+    mm = Mastermind.new
+
   end
 
   def test_it_wins_if_correct
