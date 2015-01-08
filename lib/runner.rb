@@ -25,7 +25,7 @@ class Runner
 
   def initial_menu_processes
     case user_input
-    when "p" then game.play
+      when "p" then game.play
       when "i" then output.puts printer.instructions
       when "q" then output.puts printer.rage_quit
         abort

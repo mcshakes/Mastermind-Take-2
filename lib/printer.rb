@@ -34,11 +34,11 @@ class Printer
   end
 
   def not_enough_guesses
-    "\nToo short. Pound that keyboard and add some guesses".red
+    "\nToo short. Pound that keyboard and add some guesses"
   end
 
   def too_many_guesses
-    "\nToo long bro. Stop jamming random keys.".red
+    "\nToo long bro. Stop jamming random keys."
   end
 
   def end_game_sequence

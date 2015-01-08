@@ -14,9 +14,7 @@ class MastermindTest < Minitest::Test
     runner = Runner.new($stdin,$stdout)
     feedback = runner.initial_menu_processes
     feedback = 'p'
-    assert_equal "I've generated a beginner sequence made up of four elements: (r)ed,(g)reen, (b)lue, and (y)ellow.
-    \nUse (q)uit at any time to end the game.
-    \nWhat's your guess?", printer.game_start_blurb
+    assert_equal "I've generated a beginner sequence made up of four elements: (r)ed,(g)reen, (b)lue, and (y)ellow.\nUse (q)uit at any time to end the game.\nWhat's your guess?", printer.game_start_blurb
   end
 
   def test_it_generates_sequences
@@ -27,7 +25,7 @@ class MastermindTest < Minitest::Test
     assert mm_1 != mm_2
   end
 
-  def test_it_takes_player_guess
+  def test_it_takes_player_input
     skip
     mm = Mastermind.new
 

@@ -10,7 +10,7 @@ class GuessEvaluator
 
   def correct_colors
     duplicate = secret_code.dup
-    guess.each do |color|
+    guess.chars.each do |color|
       if duplicate.include?(color)
         duplicate.delete(color)
       end
@@ -20,7 +20,7 @@ class GuessEvaluator
 
   def correct_positions
     counter = 0
-    combined = guess.zip(secret_code)
+    combined = guess.chars.zip(secret_code)
     combined.select do |code, turn|
       if code == turn
         counter += 1
@@ -29,7 +29,3 @@ class GuessEvaluator
     counter
   end
 end
-
-c = GuessEvaluator.new(["r","g","y","y"], ["r","b","g","g"])
-c.correct_colors
-c.correct_positions
