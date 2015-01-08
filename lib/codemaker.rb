@@ -8,5 +8,5 @@ class Codemaker
 
 end
 
-code = Codemaker.new
-code.secret_code
+# code = Codemaker.new
+# code.secret_code

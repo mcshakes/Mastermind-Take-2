@@ -10,13 +10,13 @@ class Mastermind
   attr_reader :printer, :codemaker, :user_input, :timer
 
   def initialize
-    @codemaker   = Codemaker.new
     @printer     = Printer.new
-    @secret_code = @codemaker.secret_code
     @timer       = Timer.new
   end
 
   def play
+    @codemaker   = Codemaker.new
+    @secret_code = @codemaker.secret_code
     p "Secret Code for testing: #{codemaker.secret_code}"
     puts printer.game_start_blurb
     until win?
@@ -26,10 +26,13 @@ class Mastermind
       @checker.correct_colors
       @checker.correct_positions
       @checker.check_length
-      puts printer.prompt_for_answer
+      if @user_input.chars != @secret_code
+        puts printer.prompt_for_answer
+      elsif @user_input.chars == @secret_code
+        puts printer.end_game_sequence(codemaker.secret_code)
+        puts printer.prompt_at_end
+      end
     end
-    puts printer.end_game_sequence(codemaker.secret_code)
-    puts printer.prompt_at_end
   end
 
   def win?

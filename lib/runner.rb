@@ -19,7 +19,7 @@ class Runner
       @user_input = input.gets.strip.downcase
       initial_menu_processes
     end
-    output.puts printer.end_game_sequence
+    # output.puts printer.prompt_at_end
   end
 
   def initial_menu_processes
