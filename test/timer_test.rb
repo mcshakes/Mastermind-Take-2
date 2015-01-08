@@ -22,15 +22,15 @@ class TimerTest < Minitest::Test
 
   def test_timer_works_when_sleeping
     timer = Timer.new
-    sleep(2)
+    sleep(1)
     timer.end_timer
-    assert_equal 2 , timer.time_elapsed
+    assert_equal 1 , timer.time_elapsed
   end
 
   def test_current_elapsed_time_works
     timer = Timer.new
-    sleep(2)
-    assert_equal 2, timer.total_elapsed_time
+    sleep(1)
+    assert_equal 1, timer.total_elapsed_time
   end
 
 end

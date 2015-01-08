@@ -2,7 +2,7 @@ class Timer
   attr_reader :start, :end
 
   def initialize
-    @start = Time.now
+    @start = Time.new
   end
 
   def end_timer
@@ -24,5 +24,5 @@ class Timer
   def seconds
     timer % 60
   end
-  
+
 end
