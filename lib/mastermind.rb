@@ -18,7 +18,7 @@ class Mastermind
     @codemaker   = Codemaker.new
     @secret_code = @codemaker.secret_code
 
-    p "Secret Code for testing: #{codemaker.secret_code}"
+    # p "Secret Code for testing: #{codemaker.secret_code}"
     puts printer.game_start_blurb
     @timer       = Timer.new
     until win?

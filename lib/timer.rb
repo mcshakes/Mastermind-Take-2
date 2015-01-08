@@ -24,5 +24,4 @@ class Timer
   def seconds
     timer % 60
   end
-
 end

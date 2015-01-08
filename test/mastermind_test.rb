@@ -26,7 +26,8 @@ class MastermindTest < Minitest::Test
   def test_the_randomness_of_sequences
     skip
     mm = Mastermind.new
-    super_secret = mm.secret_code
+    codemaker = mm.play
+    super_secret = codemaker.secret_code
     sequences = []
     100.times do
       sequences << super_secret
@@ -35,24 +36,4 @@ class MastermindTest < Minitest::Test
     assert unique_sequences.count > 1
   end
 
-  def test_it_wins_if_correct
-    skip
-    mm = Mastermind.new
-    cm = Codemaker.new
-    secret_code = cm.secret_code
-    playtime = mm.play
-    input = user_input.downcase
-    input == secret_code
-    assert true, mm.win?
-  end
-
-  def test_it_brings_back_to_main_menu_after_win
-    skip
-    mm = Mastermind.new
-    mm.start
-    correct_answer = mm.start
-
-
-    mm.win
-  end
 end

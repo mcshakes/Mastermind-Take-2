@@ -4,10 +4,6 @@ require 'colorize'
 class Printer
   attr_reader :timer
 
-  def initialize
-    @timer = Timer.new
-  end
-
   def welcome
     clear_screen
     puts '
@@ -22,7 +18,7 @@ class Printer
   end
 
   def instructions
-    "\nPick amongst four colors: \n(r)ed \n(g)reen \n(b)lue and \n(y)ellow.\nOnly those four. Complicated right?\nYou can (q)uit any time, butthead.\nSo want to (p)lay?"
+    "\nPick amongst four colors: \n(r)ed \n(g)reen \n(b)lue and \n(y)ellow.\nOnly those four. Complicated right?\nYou can (q)uit any time, butthead.\nSo want to (p)lay?\n\n"
   end
 
   def game_start_blurb
@@ -38,9 +34,9 @@ class Printer
 
   def print_count(count)
     if count < 5
-      "Your turns taken: #{count}"
+      "\n\nYour turns taken: #{count}".green
     else
-    "Keep guessing genius. It's not like you have a finite number of guesses. But you have taken #{count} guesses".red
+      "\n\nKeep guessing genius. It's not like you have a finite number of guesses. But you have taken #{count} guesses".red
     end
   end
 
@@ -50,11 +46,6 @@ class Printer
 
   def rage_quit
     "\nWell, I'm not surprised.\nThere are better games out there.\nAnd anything's better than Battleship... "
-  end
-
-  def turns_left
-    "That was turn number: \n"
-    "Number of turns left:"
   end
 
   def not_enough_guesses
@@ -74,7 +65,7 @@ class Printer
   end
 
   def prompt_at_end
-    "\nDo you want to (p)lay another round, read those super complex (i)nstructions again \nor (q)uit? And do something something useful..."
+    "\nDo you want to (p)lay another round, read those super complex (i)nstructions again \nor (q)uit? And do something something useful...".yellow
   end
 
   def clear_screen

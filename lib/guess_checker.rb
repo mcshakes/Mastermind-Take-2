@@ -12,7 +12,7 @@ class GuessChecker
 
   def correct_colors
     colors = @evaluator.correct_colors
-    puts "You have #{colors} correct color#{'s' unless colors == 1}."
+    puts "\nYou have #{colors} correct color#{'s' unless colors == 1}."
   end
 
   def correct_positions

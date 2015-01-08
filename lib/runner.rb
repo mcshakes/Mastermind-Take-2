@@ -19,7 +19,6 @@ class Runner
       @user_input = input.gets.strip.downcase
       initial_menu_processes
     end
-    # output.puts printer.prompt_at_end
   end
 
   def initial_menu_processes
@@ -28,8 +27,6 @@ class Runner
       when "i" then output.puts printer.instructions
       when "q" then output.puts printer.rage_quit
         abort
-      else
-      output.puts printer.invalid_commands
     end
   end
 
