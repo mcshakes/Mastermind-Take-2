@@ -5,6 +5,7 @@ require './lib/guess_checker'
 class CheckerTest < Minitest::Test
 
   def test_guess_checker_exists
+    skip
     assert GuessChecker.new
   end
 

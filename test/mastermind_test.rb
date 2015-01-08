@@ -18,6 +18,7 @@ class MastermindTest < Minitest::Test
   end
 
   def test_it_generates_sequences
+    skip
     mm_1 = Mastermind.new
     mm_1.generate_sequence
     mm_2 = Mastermind.new

@@ -29,3 +29,6 @@ class GuessEvaluator
     counter
   end
 end
+
+ge = GuessEvaluator.new("rgby", ["r","g","b","y"])
+ge.correct_positions

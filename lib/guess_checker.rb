@@ -37,12 +37,12 @@ class GuessChecker
   end
 
   def check_proper_colors
-    unless colors > 1
-      puts "You have #{colors} color that's correct."
-    else
-      puts "#{colors} colors are correct"
-    end
-    #puts "#{colors} color#{'s' unless colors == 1} are correct".yellow
+    # unless colors > 1
+    #   puts "You have #{colors} color that's correct."
+    # else
+    #   puts "#{colors} colors are correct"
+    # end
+    puts "#{colors} color#{'s' unless colors == 1} are correct"
   end
 
 
