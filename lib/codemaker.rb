@@ -8,5 +8,4 @@ class Codemaker
 
 end
 
-# code = Codemaker.new
-# code.secret_code
+# Split these up so you don't initialize a new one every time
